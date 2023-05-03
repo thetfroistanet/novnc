@@ -30,13 +30,13 @@ class PodStatusLed():
 
         self.args = self.parser.parse_args()
 
-    def find_first_unused_position (positionSet):
+    def find_first_unused_position (self, positionSet):
         for i in range (1000):
             if (not i in positionSet):
                  return i
         return -1
 
-    def status_color(status):
+    def status_color(self, status):
       return {
             'Running': 'green',
             'CrashLoopBackOff': 'red',
@@ -54,7 +54,7 @@ class PodStatusLed():
             'NotReady': 'grey'
         }.get(status, 'pink')
 
-    def splitCamelCase(name):
+    def splitCamelCase(self, name):
         words= re.sub('([A-Z][a-z]+)', r' \1', re.sub('([A-Z]+)', r' \1', name)).split()
         for i in range (max(4-len(words),0)):
             words.append("")
